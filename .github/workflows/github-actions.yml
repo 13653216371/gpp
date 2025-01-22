@@ -23,7 +23,7 @@ jobs:
         with:
           distribution: goreleaser
           version: latest
-          args: release --clean
+          args: release --clean --snapshot
         env:
           GITHUB_TOKEN: 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
           CGO_ENABLED: 0
