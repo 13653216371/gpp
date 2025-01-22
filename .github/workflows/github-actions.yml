@@ -1,8 +1,11 @@
 name: releaser
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: '请填写版本号'
+        required: true
+        default: 'v1.4.4'
 env:
   NODE_OPTIONS: "--max-old-space-size=4096"  # 增加 Node.js 可用的最大内存，防止构建失败
 jobs:
@@ -22,7 +25,7 @@ jobs:
           version: latest
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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
           CGO_ENABLED: 0
           GOOS: linux
           GOARCH: amd64
